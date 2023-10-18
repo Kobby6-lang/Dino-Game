@@ -1,2 +1,192 @@
-# Dino Game
+# Dino Game Tutorial
+
+## 1.Create a new scene
+
+Start by creating a new scene called Dino and delete the original and save it.
+
+Add your sprites that you either got from the net or created it youself put in the assets.
+
+Then click on all the sprites on the right hand side you will see "Wrap mode" change it from "Clamp" to "Repeat" and "Filter mode" change it to point(no filter). 
+
+Still selected unclick the ground sprite and change the under the Default:Max size: 2048 to 256 and the ground spite to 4096 then click apply. 
+
+After that drag the player in idle position and ground sprites onto the "Hierarchy" click on player go down to add components add in "Character Controller" and if you like change the name of the character to Player or something else.
+
+Underneath you find "Tag" change it to "Player" to let the game know this the character your moving or controlling. 
+Then go on ground and add a "Box collider".
+
+## 2. Create a Scripts called Player
+
+Create a folder called Scripts right click and you see create hover over it and go to C# script then change the name to Player drag it onto your player character.
+
+Double click on the script and wait for it to open.
+
+We going to make the Player be able to Jump over the obstacles in this Script. 
+First we make a two private variable one called "CharacterController character and the other called Vector3 direction.
+
+
+,,,
+    
+    private float CharacterController character
+    
+    private Vector3 direction; 
+
+,,,
+
+Now add two public float called gravity and give a value of 9.81f and times it by two and the other is jumpForce 8f. 
+The gravity is is roughly close to real life gravity then adjust to how you want it the game.
+,,,
+
+    { public float gravity = 9.81f * 2f;
+      public float jumpForce = 8f;
+    }
+    
+
+,,,
+
+We going to add a private void called Awake. Which we add character get component CharacterController
+,,,
+
+    private void Awake()
+
+    {
+      character = GetComponent<CharacterController>();
+    }
+
+,,,
+
+After this we add another private void called OnEnable then we add direction variable.
+
+,,,
+   
+    private void OnEnable() 
+    {
+      direction = Vector3.zero;
+    }
+
+,,,
+
+Then go to void Update so we add join our variables together. 
+This code is basically saying if you press the space button to jump the gravity pressure will stop you from jumping too high.
+
+,,,
+
+    private void Update()
+    {
+        direction += Vector3.down * gravity * Time.deltaTime;
+
+        if (character.isGrounded) 
+        {
+            direction = Vector3.down;
+            if (Input.GetButton("Jump"))
+            {
+                direction = Vector3.up * jumpForce; 
+            }
+
+        }
+
+        character.Move(direction * Time.deltaTime);
+    }
+
+
+,,,
+
+## 3. Game Speed
+
+Create a new Script called GameManager then double click on it to open then in the "Hierarchy" create a empty game object call it Game Manager and drag the script on too it.
+
+In the script create a public static GameManager called Instance and make the get public and set private
+
+,,,
+
+    public static  GameManager Instance { get; private set;}
+
+,,,
+
+Then we add three public float called gameSpeedIncrease with a value 0.1f, initialGameSpeed 5.0f and gameSpeed (make the get public and set private)
+
+,,,
+
+    public float gameSpeedIncrease = 0.1f
+    public float InitialGameSpeed = 5.0f
+    
+    public float gameSpeed {get; private set;}
+
+
+,,,
+
+Add a private void called Awake add a if statement saying this instance(Game Manager) saying if there more then one destroy it.
+,,,
+
+
+     private void Awake()
+    {
+        if(Instance == null) 
+        {
+            Instance = this;
+        }
+        else
+        {
+            DestroyImmediate(gameObject);
+        }
+     }
+
+,,,
+
+Make it a private void called Destroy add instance which can process the code above.
+
+,,,
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            Instance = null;
+        }
+    }
+
+,,,
+
+Make another private void called New Game add in gameSpeed = InitialGameSpeed;
+
+,,,
+
+    private void NewGame() 
+    {
+        gameSpeed = initialGameSpeed;
+    }
+
+,,,
+
+Go to void Start and add the new void you just made into it.
+
+,,,
+
+    private void Start()
+    {
+        NewGame();
+    }
+
+,,,
+
+Go to void Update and add in gameSpeed, gameSpeedIncrease and Time deltaTime which basically over time the game will increase it's speed the longer you play.
+
+,,,
+
+    private void Update()
+    {
+        gameSpeed += gameSpeedIncrease * Time.deltaTime;
+    }
+,,,
+
+## 4.Ground/Side-scrolling
+
+
+
+
+
+
+
+
+
  
