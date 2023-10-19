@@ -197,8 +197,38 @@ Go back to ground sprite and change the scale value to what the sprite pixel aft
 
 Reset you collider either by delete it and add in another one or reset it by click on the three dot on you right and select reset.
 
-Change the center y value back to what it was before the change.
+Change the center y value and size z value back to what it was before the change.
 
+Go to you **Ground** script add in a private mesh renderer called Meshrenderer.
+
+,,,
+
+     private MeshRenderer meshRenderer;
+,,,
+
+Make a private void called Awake add in mesh renderer get component(Telling the system to get the mesh renderer) 
+,,,
+
+    private void Awake()
+    {
+        meshRenderer = GetComponent<MeshRenderer>();
+    }
+
+,,,
+
+Go to void Update add a float called **speed** connect to Instance(GameManager) and the game speed and location where you want the increase in speed.
+
+Connect the mesh renderer to the material and the texture and add the float speed so that when you play the ground moving faster the longer you play the game.
+,,,
+
+    private void Update()
+    {
+        float speed = GameManager.Instance.gameSpeed / transform.localScale.x;
+        meshRenderer.material.mainTextureOffset += Vector2.right * speed * Time.deltaTime;
+    }
+,,,
+
+## Animated Sprites
 
 
 
