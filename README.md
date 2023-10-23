@@ -228,7 +228,82 @@ Connect the mesh renderer to the material and the texture and add the float spee
     }
 ,,,
 
-## Animated Sprites
+## 5.Animated Sprites
+
+Create a C# script called "AnimatedSprite"
+
+Then add in a public spite with an array bracket named sprites and private sprite renderer named spriteRenderer
+,,,
+
+    public Sprite[] sprites;
+    private spriteRenderer spriteRenderer
+
+,,,
+
+Add in a private void Awake and inside the brackets add in sprite Renderer get the components of the spriteRenderer variable.
+
+,,,
+
+    private void Awake() 
+    {
+       spriteRenderer = GetComponents<SpriteRenderer>()
+    }
+,,,
+
+Add a private Integer called frame.
+,,,
+
+    private int frame;
+
+,,,
+
+Make a private void called OnEnable and Animate.
+
+Add in frame ++ to animate to increase the frame rate. 
+Then add in if statement saying check if the frame is greater or equal to sprites length then return to zero. 
+Then Add in another if statement making sure that the frame will stay in bounds of the array.
+
+ Once animate has be called inkoke the animate by 1 sec / game manager instance. game speed.
+
+ Add in invoke name of Animate 0 sec to call this function after the game manager void start.
+
+ Add in private void called OnDisable to get rid of the animation when not in use.
+ ,,,
+
+    private void OnEnable()
+    {
+        Invoke(nameof(Animate), 0f);
+    }
+
+    private void OnDisable()
+    {
+        CancelInvoke();
+    }
+
+    private void Animate()
+    {
+        frame++;
+
+        if ( frame <= sprites.Length ) 
+        {
+            frame = 0;
+        }
+        if ( frame >= 0 && frame < sprites.Length) 
+        {
+            spriteRenderer.sprite = sprites[frame];
+        }
+
+        Invoke(nameof(Animate), 1f / GameManager.Instance.gameSpeed); 
+        }
+,,,
+
+ After you finish this add the script to the player and go to the sprites section and click on the plus sign and add in you running animations.
+
+ ## 6. Prefabs
+ 
+
+
+
 
 
 
