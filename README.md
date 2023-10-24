@@ -131,6 +131,12 @@ In the script create a public static GameManager called Instance and make the ge
 
 Then we add three public float called gameSpeedIncrease with a value 0.1f, initialGameSpeed 5.0f and gameSpeed (make the get public and set private)
 
+game speed Increase and game speed allows you to fasten your game speed as long you keep playing and the initial game speed is how fast you game originally runs.
+
+
+
+So the code below us allows us to make a public variable so we can link it to other scripts later on.
+
 ,,,
 
     public float gameSpeedIncrease = 0.1f
@@ -142,6 +148,8 @@ Then we add three public float called gameSpeedIncrease with a value 0.1f, initi
 ,,,
 
 Add a private void called Awake add a if statement saying this instance(Game Manager) saying if there more then one destroy it.
+
+This code below us is saying that if the Instance is empty then spawn if not destroy.     
 ,,,
 
 
@@ -159,7 +167,9 @@ Add a private void called Awake add a if statement saying this instance(Game Man
 
 ,,,
 
-Make it a private void called Destroy add instance which can process the code above.
+Make it a private void called Destroy add instance which can process the code above. 
+
+The code below is apply to the code Destroy Immediate and making it happen. 
 
 ,,,
 
@@ -175,6 +185,12 @@ Make it a private void called Destroy add instance which can process the code ab
 
 Make another private void called New Game add in gameSpeed = InitialGameSpeed;
 
+game speed = Initial game speed means that when the game speed changes so does the initial speed.
+
+The reason why we need the new void(New Game) is because when the game ends you can start a new version immediately.
+
+
+
 ,,,
 
     private void NewGame() 
@@ -185,6 +201,9 @@ Make another private void called New Game add in gameSpeed = InitialGameSpeed;
 ,,,
 
 Go to void Start and add the new void you just made into it.
+
+void Start is when you click play the action an happens once until you start again. So we when press play we get a fresh game to play. 
+
 
 ,,,
 
@@ -225,7 +244,11 @@ Reset you collider either by delete it and add in another one or reset it by cli
 
 Change the center y value and size z value back to what it was before the change.
 
-Go to you **Ground** script add in a private mesh renderer called Meshrenderer.
+Go to you **Ground** script add in a private mesh renderer called meshRenderer.
+
+mesh renderer is basically allow you to have a 3D character instead of 2D sprite character.
+
+The code below is saying make a private mesh renderer give it name.
 
 ,,,
 
@@ -245,6 +268,8 @@ Make a private void called Awake add in mesh renderer get component(Telling the 
 Go to void Update add a float called **speed** connect to Instance(GameManager) and the game speed and location where you want the increase in speed.
 
 Connect the mesh renderer to the material and the texture and add the float speed so that when you play the ground moving faster the longer you play the game.
+
+Vector 2 is like Vector3 but only in two axis instead of three which are x and y axis.
 ,,,
 
     private void Update()
@@ -259,6 +284,14 @@ Connect the mesh renderer to the material and the texture and add the float spee
 Create a C# script called "AnimatedSprite"
 
 Then add in a public spite with an array bracket named sprites and private sprite renderer named spriteRenderer
+
+An array is like a check list for items or objects.
+
+Sprite renderer allows to add in our sprites we made.
+
+The code below is saying a public sprite with an array saying allow you to add in the sprites animation
+
+Calling the sprite renderer so it all works.
 ,,,
 
     public Sprite[] sprites;
@@ -267,6 +300,8 @@ Then add in a public spite with an array bracket named sprites and private sprit
 ,,,
 
 Add in a private void Awake and inside the brackets add in sprite Renderer get the components of the spriteRenderer variable.
+
+The code is basically saying that sprite renderer is getting the Sprite Renderer of the sprites that have been made.
 
 ,,,
 
@@ -286,14 +321,20 @@ Add a private Integer called frame.
 Make a private void called OnEnable and Animate.
 
 Add in frame ++ to animate to increase the frame rate. 
+
 Then add in if statement saying check if the frame is greater or equal to sprites length then return to zero. 
+
 Then Add in another if statement making sure that the frame will stay in bounds of the array.
 
- Once animate has be called inkoke the animate by 1 sec / game manager instance. game speed.
+ Once animate has be called inkoke the animate by 1 sec / game manager instance game speed.
 
  Add in invoke name of Animate 0 sec to call this function after the game manager void start.
 
  Add in private void called OnDisable to get rid of the animation when not in use.
+
+ The code is simple saying that when animation enabled start up the animation when not in use stop animating. 
+
+ This need to be able to allow the character to be have an animation and then stop animation when not in use.
  ,,,
 
     private void OnEnable()
@@ -323,16 +364,22 @@ Then Add in another if statement making sure that the frame will stay in bounds 
         }
 ,,,
 
- After you finish this add the script to the player and go to the sprites section and click on the plus sign and add in you running animations.
+ After you finish this add the script to the player and go to the sprites section in the animated sprites script and click on the plus sign and add in you running animations.
 
  ## 6. Prefabs
 
 Create a Prefab Folder. In Heirarchy drag the the obstacles sprites add a  "Obstacle Tag".
 
+The reason why we use tag is so the system knows what we refer to when added in code later.
+
 Add a Box Collider and change the order layer to one to all of them. If you have an flying obstacle add the Animated Spite script to it. 
 Click the plus sign and add how many movements you have of that obstacle.
 
+A Box Collider allows us the player or object to collider with each other instead of going through each other.
+
 if you made the space in you sprite too big you can adjust it using the Box Collider.
+
+You can adjust the size of the box collider if it too big or too small.
 
 ## 7. Spawner
 
