@@ -13,6 +13,7 @@ Still selected unclick the ground sprite and change the under the **Default:Max 
 After that drag the player in idle position and ground sprites onto the "Hierarchy" click on player go down to add components add in "Character Controller" and if you like change the name of the character to Player or something else.
 
 Underneath you find "Tag" change it to **"Player"** to let the game know this the character your moving or controlling. 
+
 Then go on ground and add a "Box collider".
 
 ## 2. Create a Scripts called Player
@@ -300,6 +301,17 @@ Then Add in another if statement making sure that the frame will stay in bounds 
  After you finish this add the script to the player and go to the sprites section and click on the plus sign and add in you running animations.
 
  ## 6. Prefabs
+
+Create a Prefab Folder. In Heirarchy drag the the obstacles sprites add a  "Obstacle Tag".
+
+Add a Box Collider and change the order layer to one to all of them. If you have an flying obstacle add the Animated Spite script to it. 
+Click the plus sign and add how many movements you have of that obstacle.
+
+if you made the space in you sprite too big you can adjust it using the Box Collider.
+
+## 7. Spawner
+
+
  
 
 
