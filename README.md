@@ -383,6 +383,65 @@ You can adjust the size of the box collider if it too big or too small.
 
 ## 7. Spawner
 
+Create a Spawner Script the Spawner allows us to spawn the objects or obstacles we want in our game.
+
+Whether it's slow or fast spawns that we want.
+
+In the Script add in a public struct variable called spawnableObject.
+
+Which allows us to spawn multiple prefabs sprites at different intervals.
+
+In the struct variable add in the a public gameObject named prefab.
+
+the **struct** variable allows to find the prefabs and spawn them in our game.
+
+,,,
+
+    public struct SpawnableObject 
+    {
+       public GameObject prefab;
+    }
+
+,,,
+
+Add in a public float called spawnChance which allows the system to randomise the spawn time of the prefabs.
+
+Add in the range of 0 to 1 shown below this tells the system the spawnChance is between 0 and 1.
+
+    public struct SpawnableObject 
+    {
+       public GameObject prefab;
+       [Range(0f, 1f)]
+       public float SpawnChance;
+    }
+,,,
+
+Now we going to create an array of spawnable objects allow us to apply the code above to our game.
+
+This won't show up on the editor because it doesn't know how to serialise it so the editor can understand it.
+
+So go to the top and add in system serializable which allow the system to convert it to something that understandable.
+
+    [System.Serializable]
+
+    public SpawnableObject[] objects;
+
+Then go to **"Hierarchy"** add in empty gameObject reset the position back to zero and add in you script.
+
+Then you will see objects on scripts click the plus seven times or add the number 7 to the box on the right hand side.
+
+[There you will add in the prefabs from spawn more to spawn less in your game.](![Screenshot 2023 10 31 132150](../../../Pictures/Screenshots/Screenshot%202023-10-31%20132150.png))
+
+
+
+
+
+
+
+
+
+
+
 
  
 
