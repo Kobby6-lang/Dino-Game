@@ -27,9 +27,10 @@ public class AnimatedSprites : MonoBehaviour
 
     private void Animate()
     {
+        Debug.Log("Animate");
         frame++;
 
-        if ( frame <= sprites.Length ) 
+        if ( frame >= sprites.Length ) 
         {
             frame = 0;
         }
