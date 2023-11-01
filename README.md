@@ -536,6 +536,7 @@ We just created with the main camera saying that when the objects exits out of t
 
 
 The if statement is saying once (x) is less than left edge then destroy it if not wait until then.
+,,,
 
     void Update()
     {
@@ -546,6 +547,100 @@ The if statement is saying once (x) is less than left edge then destroy it if no
             Destroy(gameObject);
         }
     }
+
+Then add the script to all of your prefabs when done with the code section.
+,,,
+
+Click on the Player Scripts.
+
+Add in private void called OnTriggerEnter.
+
+On TriggerEnter allows you to say when hit or crash into something then trigger an appropiate reponse to the situation.
+
+We need to verify the **"other"** that were colliding with is tthee obstacle. Shown in the code below.
+
+This need to be matched with the obstacle tag we made earlier otherwise it won't work.
+,,,
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Obstacle"))
+        {
+           
+        }
+    }
+
+,,,
+
+We create a public void called GameOver. Where we disable the game speed and everything else as well. Shown below.
+,,,
+
+    public void GameOver()
+    {
+        gameSpeed = 0f;
+        enabled = false;
+    }
+
+,,,
+
+We need to deactive our player and spawner so let create a variable for this two.
+,,,
+    private Player player;
+    private Spawner spawner;
+
+,,,
+
+The code is saying find the object of this variable and do something with it when the code has been written. 
+
+,,,
+        {
+          player = FindObjectOfType<Player>();
+          spawner = FindObjectOfType<Spawner>();
+
+
+          NewGame();
+       }
+,,,
+
+,,,
+
+    public void GameOver()
+    {
+        gameSpeed = 0f;
+        enabled = false;
+        player.gameObject.SetActive(false);
+        spawner.gameObject.SetActive(false);
+    }
+,,,
+
+In the New Game void reenable the player which we will be shown below. 
+
+We also need to clean up all the obstacles in the array. We find this using the find objects code.
+
+Then we add a for each statement saying every objects we find in our array destroy every time we start a new game.
+
+    private void NewGame() 
+    {
+        Obstacles[] obstacles = FindObjectsOfType<Obstacles>();
+
+        foreach(var obstacle in obstacles) 
+        {
+            Destroy(obstacle.gameObject);
+        }
+
+        gameSpeed = initialGameSpeed;
+        enabled = true;
+        player.gameObject.SetActive(true);
+        spawner.gameObject.SetActive(true);
+    }
+
+
+
+
+
+
+
+
 
 
 

@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public float jumpForce = 8f;
     private void Awake()
     {
-        character = GetComponent<CharacterController>();    
+        character = GetComponent<CharacterController>();
     }
 
     private void OnEnable()
@@ -23,16 +23,24 @@ public class Player : MonoBehaviour
     {
         direction += Vector3.down * gravity * Time.deltaTime;
 
-        if (character.isGrounded) 
+        if (character.isGrounded)
         {
             direction = Vector3.down;
             if (Input.GetButton("Jump"))
             {
-                direction = Vector3.up * jumpForce; 
+                direction = Vector3.up * jumpForce;
             }
 
         }
 
         character.Move(direction * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Obstacle"))
+        {
+            GameManager.Instance.GameOver();
+        }
     }
 }
