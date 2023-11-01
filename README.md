@@ -492,14 +492,60 @@ If the object has been called then we call our invoke again and pick another num
 
 ,,,
 
-## Obstacles
+## 8. Obstacles
+
+Create a Obstacle scripts.
+
+This script will allow us make the prefabs look like it moving towards the player when it's really not.
+
+In the private void called Update you add in tranform position += vector3 left times the the game speed of the game.
+
+you also add **Time.deltaTime** meaning that you can control the speed you want time to go.
+
+Meaning that the obstacles will move to match the speed of the ground and speed of the game.
+
+,,,
+
+    void Update()
+    {
+        transform.position += Vector3.left * GameManager.Instance.gameSpeed * Time.deltaTime;
+    }
+
+,,,
+
+Create private void called left edge. 
+
+This variable allows to store a variable to use to destroy the objects after it leaves the screen.
+,,,
+
+    private void leftEdge;
+
+,,,
+
+,,,
+
+The code allows us to connect the float. 
+
+We just created with the main camera saying that when the objects exits out of the view of camera(x) destroy it after 2 secs. 
+
+    private void Start()
+    {
+        leftEdge = Camera.main.ScreenToWorldPoint(Vector3.zero).x - 2f;
+    }
+,,,
 
 
+The if statement is saying once (x) is less than left edge then destroy it if not wait until then.
 
+    void Update()
+    {
+        transform.position += Vector3.left * GameManager.Instance.gameSpeed * Time.deltaTime;
 
-
-
-
+        if (transform.position.x < leftEdge)
+        {
+            Destroy(gameObject);
+        }
+    }
 
 
 
