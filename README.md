@@ -1,8 +1,7 @@
 # Dino Game Tutorial
 
 I used this code from: https://github.com/zigurous/unity-dino-game-tutorial
-[
-](https://www.youtube.com/watch?v=UPvW8kYqxZk&t=5304s&pp=ygUJemlndXJvdXMg)
+https://www.youtube.com/watch?v=UPvW8kYqxZk&t=5304s
 ## 1.Create a new scene
 
 Start by creating a new scene called Dino and delete the original and save it.
