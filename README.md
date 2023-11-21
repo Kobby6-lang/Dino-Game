@@ -18,7 +18,7 @@ Still selected unclick the ground sprite and change the under the **Default:Max 
 
 Default mode is the max size of your pixel arts.
 
-After that drag the player in idle position and ground sprites onto the "Hierarchy" click on player go down to add components add in "Character Controller" and if you like change the name of the character to Player or something else.
+After that drag the player sprite in idle position and ground sprites onto the "Hierarchy" click on player go down to add components add in "Character Controller" and if you like change the name of the character to Player or something else.
 
 Character controller allows you the player to be able to control the movements of the player.
 
@@ -27,6 +27,8 @@ Underneath you find "Tag" change it to **"Player"** to let the game know this th
 Then go on ground and add a "Box collider".
 
 A box collider is a collider that makes the game recognize that you crashed into something.
+
+A tag in unity means giving a label to something then calling it later on in the script. 
 
 ## 2. Create a Scripts called Player
 
@@ -38,7 +40,8 @@ We going to make the Player be able to Jump over the obstacles in this Script.
 
 First we make a two private variable one called "CharacterController character and the other called Vector3 direction.
 
-We will need a variable to allow us to modify the character's position.
+We will need a variable to allow us to modify the character's position which is the vector3 direction.
+
 We can use a reference to the player's character controller component for that. 
 
 
@@ -51,7 +54,7 @@ We can use a reference to the player's character controller component for that.
 ,,,
 
 Now add two public float called gravity and give a value of 9.81f and times it by two and the other is jumpForce 8f. 
-The gravity is is roughly close to real life gravity then adjust to how you want it the game.
+The gravity is is roughly close to real life gravity then adjust to how you want it in the game.
 
 The gravity stops the character for flying out endless into the sky and the jumpforce is allow the character to jump big or small.
 ,,,
@@ -89,7 +92,7 @@ On Enable function allows us to control when we won't something in our game or n
 
 ,,,
 
-Then go to void Update so we add join our variables together.
+Then go to void Update so we join our variables together.
 
 This code is basically saying if you press the space button to jump the gravity pressure will stop you from jumping too high.
 
@@ -179,7 +182,7 @@ This code below us is saying that if the Instance is empty then spawn if not des
 
 ,,,
 
-Make it a private void called Destroy add instance which can process the code above. 
+Make a private void called Destroy add instance which can process the code above. 
 
 The code below is apply to the code Destroy Immediate and making it happen. 
 
@@ -214,7 +217,7 @@ The reason why we need the new void(New Game) is because when the game ends you 
 
 Go to void Start and add the new void you just made into it.
 
-void Start is when you click play the action an happens once until you start again. So we when press play we get a fresh game to play. 
+void Start is when you click play the action an happens once until you start again. So we when press play again we get a fresh game to play. 
 
 
 ,,,
@@ -260,7 +263,9 @@ Go to you **Ground** script add in a private mesh renderer called meshRenderer.
 
 mesh renderer is basically allow you to have a 3D character instead of 2D sprite character.
 
-The code below is saying make a private mesh renderer give it name.
+A Mesh Filter component holds a reference to a mesh. It works with a Mesh Renderer component on the same GameObject the Mesh Renderer renders the mesh that the Mesh Filter references.
+
+The code below is saying make a private mesh renderer call it meshRenderer.
 
 ,,,
 
@@ -332,9 +337,9 @@ Add a private Integer called frame.
 
 Make a private void called OnEnable and Animate.
 
-Add in frame ++ to animate to increase the frame rate. 
+Add in frame ++ to yanimate to increase the frame rate. 
 
-Then add in if statement saying check if the frame is greater or equal to sprites length then return to zero. 
+Then add in if statement saying check if the frame is greater or equal to sprites length then return to zero and start again. 
 
 Then Add in another if statement making sure that the frame will stay in bounds of the array.
 
@@ -347,6 +352,12 @@ Then Add in another if statement making sure that the frame will stay in bounds 
  The code is simple saying that when animation enabled start up the animation when not in use stop animating. 
 
  This need to be able to allow the character to be have an animation and then stop animation when not in use.
+
+ void animate is calling the animation so it works when you start the game.
+
+ void On disable is when you enable something but you don't want it appearing anymore in your game so the system disable it for you.
+
+ invoke means start something up in this case every o or 1 sec depending on the situations.
  ,,,
 
     private void OnEnable()
@@ -512,9 +523,11 @@ This script will allow us make the prefabs look like it moving towards the playe
 
 In the private void called Update you add in tranform position += vector3 left times the the game speed of the game.
 
-you also add **Time.deltaTime** meaning that you can control the speed you want time to go.
+Meaning that the obstacles will  match the speed of the ground and speed of the game and look like its moving.
 
-Meaning that the obstacles will move to match the speed of the ground and speed of the game.
+Time.deltaTime is the interval in seconds from the last frame to the current one.
+
+
 
 ,,,
 
@@ -559,7 +572,7 @@ The if statement is saying once (x) is less than left edge then destroy it if no
             Destroy(gameObject);
         }
     }
-
+ 
 Then add the script to all of your prefabs when done with the code section.
 ,,,
 
@@ -569,7 +582,7 @@ Add in private void called OnTriggerEnter.
 
 On TriggerEnter allows you to say when hit or crash into something then trigger an appropiate reponse to the situation.
 
-We need to verify the **"other"** that were colliding with is tthee obstacle. Shown in the code below.
+We need to verify the **"other"** that were colliding with is the obstacle. Shown in the code below.
 
 This need to be matched with the obstacle tag we made earlier otherwise it won't work.
 ,,,
