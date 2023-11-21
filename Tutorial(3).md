@@ -1,13 +1,13 @@
 # Dino Game Tutorial
 
-I used this code from: https://github.com/zigurous/unity-dino-game-tutorial /
+I used this code from https://github.com/zigurous/unity-dino-game-tutorial /
 https://www.youtube.com/watch?v=UPvW8kYqxZk&t=5304s
 
 ## 3. Game Speed
 
-Create a new Script called GameManager then double click on it to open then in the **"Hierarchy"** create a empty game object call it Game Manager and drag the script on too it.
+Create a new Script called **GameManager**, then double click on it to open, then, in the **"Hierarchy"**, create an empty game object, call it Game Manager and drag the script onto it.
 
-In the script create a public static GameManager called Instance and make the get public and set private
+In the script, create a public static GameManager called Instance and make the get public and set private.
 
 ,,,
 
@@ -15,13 +15,13 @@ In the script create a public static GameManager called Instance and make the ge
 
 ,,,
 
-Then we add three public float called gameSpeedIncrease with a value 0.1f, initialGameSpeed 5.0f and gameSpeed (make the get public and set private)
+Then we add three public floats called gameSpeedIncrease with a value 0.1f, initialGameSpeed 5.0f and game speed (make the get public and set private)
 
-game speed Increase and game speed allows you to fasten your game speed as long you keep playing and the initial game speed is how fast you game originally runs.
+Game speed Increase, and game speed allows you to fasten your game speed as long you keep playing, and the initial game speed is how fast your game originally runs.
 
 
 
-So the code below us allows us to make a public variable so we can link it to other scripts later on.
+So, the code below allows us to make a public variable to link it to other scripts later.
 
 ,,,
 
@@ -33,7 +33,7 @@ So the code below us allows us to make a public variable so we can link it to ot
 
 ,,,
 
-Add a private void called Awake add a if statement saying this instance(Game Manager) saying if there more then one destroy it.
+Add a private void called Awake add a if statement saying this Instance (Game Manager) saying if there more then one destroy it.
 
 This code below us is saying that if the Instance is empty then spawn if not destroy.     
 ,,,
@@ -53,9 +53,9 @@ This code below us is saying that if the Instance is empty then spawn if not des
 
 ,,,
 
-Make a private void called Destroy add instance which can process the code above. 
+Make a private void called Destroy and add the Instance to process the code above. 
 
-The code below is apply to the code Destroy Immediate and making it happen. 
+The code below applies to Destroy Immediate and makes it happen. 
 
 ,,,
 
@@ -69,11 +69,11 @@ The code below is apply to the code Destroy Immediate and making it happen.
 
 ,,,
 
-Make another private void called New Game add in gameSpeed = InitialGameSpeed;
+Make another private void called New Game. Add in-game speed = InitialGameSpeed;
 
-game speed = Initial game speed means that when the game speed changes so does the initial speed.
+Game speed = Initial game speed means that when the game speed changes, so does the initial speed.
 
-The reason why we need the new void(New Game) is because when the game ends you can start a new version immediately.
+We need the new void(New Game) because you can start a new version immediately when the game ends.
 
 
 
@@ -86,9 +86,9 @@ The reason why we need the new void(New Game) is because when the game ends you 
 
 ,,,
 
-Go to void Start and add the new void you just made into it.
+Go to void Start and add the new void you just made.
 
-void Start is when you click play the action an happens once until you start again. So we when press play again we get a fresh game to play. 
+Void Start is when you click to play the action, which happens once until you start again. So when we press play again, we get a fresh game. 
 
 
 ,,,
@@ -100,7 +100,7 @@ void Start is when you click play the action an happens once until you start aga
 
 ,,,
 
-Go to void Update and add in gameSpeed, gameSpeedIncrease and Time deltaTime which basically over time the game will increase it's speed the longer you play.
+Go to void Update and add in gameSpeed, gameSpeedIncrease and Time deltaTime, which, over time, the game will increase its speed the longer you play.
 
 ,,,
 
