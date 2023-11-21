@@ -739,8 +739,6 @@ This is saying once you fail or die the system will renable the UI canvas.
 Go back to the heirarchy assign the text and button in the game manager otherwise you will get an error saying that can't find reference or something like that.
 
 
-[![Little red riding hood](https://i.stack.imgur.com/XCRlR.png)](https://vimeo.com/3514904 "Little red riding hood - Click to Watch!") 
-
 
 
 
