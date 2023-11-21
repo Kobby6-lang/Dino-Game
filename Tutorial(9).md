@@ -5,13 +5,13 @@ https://www.youtube.com/watch?v=UPvW8kYqxZk&t=5304s
 
 ## 9. UI
 
-Create a Font folder where you will add a font you created yourself or took from the internet. 
+Create a Font folder to add a font you created or took from the internet. 
 
 Then, you convert it to a text mesh pro mesh.
 
-We can do this by right-clicking and going to **create** and look for Text Mesh Pro, and click on font asset.
+We can do this by right-clicking and going to **create**, look for Text Mesh Pro, and click on font asset.
 
-Or we go to Windows text mesh pro, Font Assest Creator, add your font, and click save.
+Or go to Windows Text Mesh Pro, Font Asset Creator, add your font, and click save.
 
 Before we add in the text, we right-click on hierarchy and go to the canvas.
 
