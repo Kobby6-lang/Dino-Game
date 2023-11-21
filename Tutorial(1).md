@@ -1,31 +1,32 @@
 # Dino Game Tutorial
 
-I used this code from: https://github.com/zigurous/unity-dino-game-tutorial /
+I used this code from https://github.com/zigurous/unity-dino-game-tutorial /
 https://www.youtube.com/watch?v=UPvW8kYqxZk&t=5304s
 
-## 1.Create a new scene
+## 1. Create a new scene
 
-Start by creating a new scene called Dino and delete the original and save it.
+Start by creating a new scene called Dino, and delete and save the original.
 
-Add your sprites that you either got from the net or created it youself put in the assets.
+Please add the sprites you got from the net or created and put in the assets.
 
-Then click on all the sprites on the right hand side you will see "Wrap mode" change it from** "Clamp"** to **"Repeat"** and **"Filter mode"** change it to **point(no filter)**. 
+Then click on all the sprites on the right-hand side and see "Wrap mode." Change it from** "Clamp"** to **"Repeat"** and **"Filter mode"** change it to **point(no filter)**. 
 
-Wrap mode is determines how time is treated outside of the keyframed range of an AnimationClip or AnimationCurve.
-Filter mode is changing the filter of your pixel arts depending on you game.
+Wrap mode determines how time is treated outside of the keyframed range of an AnimationClip or AnimationCurve.
 
-Still selected unclick the ground sprite and change the under the **Default:Max size:** 2048 to 256 and the ground spite to 4096 then click apply. 
+Filter mode changes the filter of your pixel art depending on your game.
 
-Default mode is the max size of your pixel arts.
+Still selected, unclick the ground sprite and change the under the **Default: Max size:** 2048 to 256 and the ground spite to 4096, then click apply. 
 
-After that drag the player sprite in idle position and ground sprites onto the "Hierarchy" click on player go down to add components add in "Character Controller" and if you like change the name of the character to Player or something else.
+The default mode is the maximum size of your pixel art.
 
-Character controller allows you the player to be able to control the movements of the player.
+After that, drag the player sprite in an idle position and ground sprites onto the "Hierarchy." click on Player, add components, add in "Character Controller", and change the character's name to Player or something else.
 
-Underneath you find "Tag" change it to **"Player"** to let the game know this the character your moving or controlling. 
+Character controller allows you, the Player, to control the movements of the Player.
 
-Then go on ground and add a "Box collider".
+Underneath, you find "Tag." Change it to **"Player"** to let the game know this is the character you are moving or controlling. 
+
+Then go on the ground and add a "Box collider".
 
 A box collider is a collider that makes the game recognize that you crashed into something.
 
-A tag in unity means giving a label to something then calling it later on in the script.
+A tag in unity means giving a label to something and then calling it later in the script.
