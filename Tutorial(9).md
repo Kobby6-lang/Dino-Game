@@ -3,6 +3,8 @@
 I used this code from: https://github.com/zigurous/unity-dino-game-tutorial /
 https://www.youtube.com/watch?v=UPvW8kYqxZk&t=5304s
 
+"C:\Users\Kwabena Osei-Tutu\Documents\GitHub\Dino-Game\2023-11-21 15-37-52.mp4"
+
 ## 9. UI
 
 Create a Font folder where you will add in a font you created yourself or took from the internet. 
@@ -77,5 +79,3 @@ Go to game over void and copy in the code at the top and change both to true.
 This is saying once you fail or die the system will renable the UI canvas.
 
 Go back to the heirarchy assign the text and button in the game manager otherwise you will get an error saying that can't find reference or something like that.
-
-<video src="2023-11-21%2015-37-52.mp4" controls title="Title"></video>
