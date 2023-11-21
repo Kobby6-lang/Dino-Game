@@ -538,12 +538,12 @@ Time.deltaTime is the interval in seconds from the last frame to the current one
 
 ,,,
 
-Create private void called left edge. 
+Create private float called left edge. 
 
 This variable allows to store a variable to use to destroy the objects after it leaves the screen.
 ,,,
 
-    private void leftEdge;
+    private float leftEdge;
 
 ,,,
 
@@ -615,7 +615,11 @@ We need to deactive our player and spawner so let create a variable for this two
 
 ,,,
 
-The code is saying find the object of this variable and do something with it when the code has been written. 
+The code is saying find the object of this variable and do something with it when the code has been written.
+
+When the object has been found it mens a new game has started.
+
+the code in void game over means disable everything when the player loses the game.
 
 ,,,
         {
@@ -638,7 +642,7 @@ The code is saying find the object of this variable and do something with it whe
     }
 ,,,
 
-In the New Game void reenable the player which we will be shown below. 
+In the New Game void renable the player which we will be shown below. 
 
 We also need to clean up all the obstacles in the array. We find this using the find objects code.
 
@@ -675,17 +679,17 @@ Canvas allows as to project something onto the screen.
 
 If it's you first time creating a textmeshpro then you get a popup saying import tmp essentials click on and wait for a bit and close it down afterwards.
 
-Then right click on canvas to add a child to it named game over or something else and click on textmeshpro text add in your font on the right hand side where it says font asset.
+Then right click on canvas to add a child to it name it game over or something else and click on textmeshpro text add in your font on the right hand side where it says font asset.
 
 Go to the canvas right click again and click on button textmeshpro.
 
-Drag your gameover button to the source image on buttom tmp and set to native size and delete the text child underneath.
+Drag your gameover button sprit to the source image on buttom tmp and set to native size and delete the text child underneath.
 
 You then adjust you font and button to your preferences on the right hand side.
 
 Go to button scroll down until you see On click and click the + button.
 
-Add in GameManager game object on the heirarchy if you add in the script game object it won't work. 
+Add in GameManager game object on the heirarchy if you add in the game manager script it won't work. 
 
 Then click on no functions and go to GameManager and find **new game** you might not find it because it set to private so go back to the code change it to public.
 
@@ -712,9 +716,9 @@ These Variables allows to reference the text and button in our scene when we dra
 
 ,,,
 
-Go to the new game void add in game over text game object set active false and the same for  retry button.
+Go to the new game void add in game over text game object set active false and the same for retry button.
 
-This code are saying that if you are in a new disable the ui canvas.
+This code are saying that if you are in a new game disable the ui canvas.
 
     gameOverText.gameObject.SetActive(false);
     retryButton.gameObject.SetActive(false);
